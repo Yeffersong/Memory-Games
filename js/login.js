@@ -79,7 +79,7 @@ function registroUserLs(){
         setTimeout(()=>{
             localStorage.setItem('userInGame', input.value)
             registrarUsurio();
-            window.location = 'index.html'; 
+            window.location = './index.html'; 
         },2000)
     }
 }
@@ -88,7 +88,7 @@ function volverInicio(){
     spinner.classList.remove('inactive')
     form.classList.add('inactive')
     setTimeout(()=>{
-        window.location = '/index.html'; 
+        window.location = './index.html'; 
     },1000)
 }
 
