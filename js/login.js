@@ -145,7 +145,7 @@ function handleSubmit(e){
         if(validateInput3(inputPassword.value.trim(), input.value.trim())){
             localStorage.setItem('userInGame', input.value);
             form.reset();
-            window.location = '/pages/games.html';
+            window.location = './pages/games.html';
         }else{
             labelFunction('Contraseña Incorrecta', 'red')
         }
