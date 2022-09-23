@@ -77,3 +77,73 @@ header{
 }
 
 
+/* finally-game */
+
+/* HEAD */
+.finally-game-container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: clamp(20px, 3vw, 30px);
+}
+
+.finally-game-head{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute;
+    top: clamp(60px, 10vw, 200px); */
+}
+
+.image-finally{
+    width: 30%;
+}
+
+.finally-title{
+    font-size: clamp(20px, 3vw, 32px);
+}
+
+.user{
+    margin-top: clamp(20px, 3vw, 30px);
+    font-size: clamp(12px, 1vw, 24px);
+    color: brown;
+}
+.time-user{
+    margin: clamp(20px, 3vw, 30px);
+    font-size: clamp(12px, 1vw, 24px);
+    color: brown;
+}
+
+/* BUTTONS */
+.finally-game-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 3vw, 30px);
+}
+
+.finally-game-button{
+    background-color: #ee665c;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    max-width: 300px;
+    padding: 15px 30px;
+    width: 100%;
+    font-size: clamp(12px, 3vw, 16px);
+}
+
+.finally-game-button:hover{
+    background-color: rgb(238, 102, 92, .8);
+}
+
+.finally-game-icon{
+    font-size: clamp(20px, 3vw, 24px);
+}

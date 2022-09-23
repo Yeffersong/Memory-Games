@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/spinner.css">
     <link rel="stylesheet" href="../css/game.css">
-
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- Scripts -->
     <script defer src="../js/game.js"></script>
 </head>
 <body>
@@ -41,9 +43,28 @@
                 <div style="background-image: url('./images/beth.png');"  class="face front"></div>
                 <div class="face back" ></div>
             </div> -->
-            
         </div>
     </main>
+
+    <section class="finally-game-container inactive">
+        <div class="finally-game-head">
+            <img class="image-finally" src="../images/brain.png" alt="brain icon">
+            <h1 class="finally-title">Memory Game</h1>
+
+            <h1 class="user"></h1>
+            <h1 class="time-user"></h1>
+        </div>
+        <div class="finally-game-buttons">
+            <button id="highscore" class="finally-game-button" disabled>
+                <i class="finally-game-icon bi bi-bar-chart-fill"></i>
+                HighScore
+            </button>
+            <button id="replay" class="finally-game-button">
+                <i class="finally-game-icon bi bi-arrow-counterclockwise"></i>
+                Replay 
+            </button>
+        </div>
+    </section>
 
     
 

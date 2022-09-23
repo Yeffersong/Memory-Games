@@ -2,15 +2,23 @@
 const grid = querySelectorClass('grid')
 const game = querySelectorClass('game-container')
 const spinner = querySelectorClass('spinner-container')
+const finallyGame = querySelectorClass('finally-game-container')
 
 /* HEADER GAME */
 
 const spanPlayer = querySelectorClass('player')
 const spanTimer = querySelectorClass('timer')
 
+/* FINALLY GAME */
+
+const highScoreBtn = querySelectorId('highscore') 
+const replayBtn = querySelectorId('replay')
+
+replayBtn.addEventListener('click', ()=>{
+    window.location = '../pages/games.html'
+})
+
 /* PREVIEW GAME */
-
-
 
 
 const characters = [
@@ -140,9 +148,17 @@ function checkEndgame(){
 
     if(disabledCards.length == 20){
 
+        const timeUser = querySelectorClass('time-user')
+        const user = querySelectorClass('user')
+
+        game.classList.add('inactive')
+        finallyGame.classList.remove('inactive')
+        
         setTimeout(()=>{
             clearInterval(this.loop)
-            alert(`Juego Terminado: ${spanTimer.innerHTML} segundos`)
+            /* alert(`Juego Terminado: ${spanTimer.innerHTML} segundos`) */
+            user.textContent = `Usuario: ${spanPlayer.innerHTML}`
+            timeUser.textContent = `Tiempo: ${spanTimer.innerHTML} segundos`
         },500)
         
     }
