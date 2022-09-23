@@ -79,7 +79,7 @@ function registroUserLs(){
         setTimeout(()=>{
             localStorage.setItem('userInGame', input.value)
             registrarUsurio();
-            window.location = '/index.html'; 
+            window.location = './index.html'; 
         },2000)
     }
 }
