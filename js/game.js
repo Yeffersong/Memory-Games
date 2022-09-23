@@ -45,7 +45,7 @@ function createCard(character){
 
     const card = document.createRange().createContextualFragment(`
         <div class="card" data-character='${character}'>
-            <div style="background-image: url('./images/${character}.png');"  class="face front"></div>
+            <div style="background-image: url('../images/${character}.png');"  class="face front"></div>
             <div class="face back" ></div>
         </div>
     `);
