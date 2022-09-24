@@ -1,3 +1,18 @@
+
+.body{
+    background-image: url("/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+}
+
+.backOut{
+    background-image: none;
+    background-color: white;
+}
+
+
 .login-form{
     display: flex;
     align-items: center;

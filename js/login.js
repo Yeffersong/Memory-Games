@@ -1,4 +1,7 @@
 
+const bodyBackground = querySelectorClass('body')
+
+
 /* CLASES */
 
 class Usuario{
@@ -41,8 +44,10 @@ button.addEventListener('click', handleSubmit)
 function registroUser(){
     spinner.classList.remove('inactive')
     form.classList.add('inactive')
+    bodyBackground.classList.add('backOut')
     setTimeout(()=>{
         form.classList.remove('inactive')
+        bodyBackground.classList.remove('backOut')
         spinner.classList.add('inactive')
         labelFunction('(3-10 carácteres)', 'black')
         form.reset();
@@ -51,6 +56,7 @@ function registroUser(){
         registrarUsuario.classList.add('inactive')
         registrarUsuarioConfirm.classList.remove('inactive')
         volverInicioBtn.classList.remove('inactive')
+        
     },1000)
 }
 
@@ -76,6 +82,7 @@ function registroUserLs(){
 
         spinner.classList.remove('inactive')
         form.classList.add('inactive')
+        bodyBackground.classList.add('backOut')
         setTimeout(()=>{
             localStorage.setItem('userInGame', input.value)
             registrarUsurio();
@@ -87,6 +94,7 @@ function registroUserLs(){
 function volverInicio(){
     spinner.classList.remove('inactive')
     form.classList.add('inactive')
+    bodyBackground.classList.add('backOut')
     setTimeout(()=>{
         window.location = './index.html'; 
     },1000)
