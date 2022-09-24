@@ -147,3 +147,88 @@ header{
 .finally-game-icon{
     font-size: clamp(20px, 3vw, 24px);
 }
+
+
+/* HIGHSCORE */
+.highscore-container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: clamp(20px, 3vw, 30px);
+}
+.highscore-times{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(20px, 3vw, 30px);
+
+}
+.highscore-head{
+    /* background-color: rebeccapurple */
+    display: flex;
+    font-size:clamp(10px, 3vw, 20px);
+    color: #ee665c;
+    justify-content: space-between;
+    /* gap: clamp(100px, 10vw, 150px); */
+}
+.highscore-usersTime{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3vw, 30px);
+    overflow: auto;
+    max-height: 30vh;
+}
+.highscore-userTime{
+    font-size: clamp(6px, 3vw, 16px);
+    display: flex;
+    justify-content: space-between;
+    /* gap: clamp(100px, 10vw, 150px); */
+}
+
+
+th,td{
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: clamp(16px, 5vw, 30px);
+    padding-bottom: clamp(16px, 5vw, 30px);
+    padding-left: clamp(20px, 5vw, 40px);
+    padding-right: clamp(20px, 5vw, 40px);
+    font-size:clamp(10px, 3vw, 20px);
+    border-collapse: collapse;
+    text-align: center;
+}
+table,th,td{
+    border: 2px solid black;
+}
+
+table{
+    border-collapse: collapse;
+    display: inline-block;
+    overflow: auto;
+    max-height: 40vh;
+    max-width: 80%;
+    position: relative;
+    cursor: text;
+}
+
+thead{
+    position: sticky;
+    z-index: 100;
+    color: white;
+    top: 0;
+    background-color: #333;
+}
+
+table tbody tr:nth-child(odd){
+    background-color: #ee665c;
+    color: white;
+}
+
+
