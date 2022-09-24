@@ -11,11 +11,22 @@ const spanTimer = querySelectorClass('timer')
 
 /* FINALLY GAME */
 
-const highScoreBtn = querySelectorId('highscore') 
-const replayBtn = querySelectorId('replay')
+const finallyPages = querySelectorClass('finally-game-pages')
+const highScore = querySelectorClass('highscore-container')
 
-replayBtn.addEventListener('click', ()=>{
-    window.location = '../pages/games.html'
+
+finallyPages.addEventListener('click', ({target})=>{
+
+    if(target.classList.contains('replay')){
+        window.location = '../pages/games.html'
+    }
+    if(target.classList.contains('inicio')){
+        window.location = '../index.html'
+    }
+    if(target.classList.contains('highscore')){
+        finallyGame.classList.add('inactive')
+        highScore.classList.remove('inactive')
+    }
 })
 
 /* PREVIEW GAME */
@@ -156,13 +167,57 @@ function checkEndgame(){
         
         setTimeout(()=>{
             clearInterval(this.loop)
-            /* alert(`Juego Terminado: ${spanTimer.innerHTML} segundos`) */
+            
+
             user.textContent = `Usuario: ${spanPlayer.innerHTML}`
             timeUser.textContent = `Tiempo: ${spanTimer.innerHTML} segundos`
+            
+            const usuario = {
+                nombre : spanPlayer.innerHTML,
+                tiempo : spanTimer.innerHTML
+            }
+
+            guardarTimeLS(usuario);
+
         },500)
         
     }
 }
+
+function guardarTimeLS(timeUser){
+    const timesLS = obtenerTimesLS();
+
+    timesLS.push(timeUser);
+
+    localStorage.setItem('tiempos', JSON.stringify(timesLS))
+
+    agregarHighScore(timesLS);
+}
+
+function agregarHighScore(timesLS){
+
+    const tbody = querySelectorClass('tiempos')
+
+    timesLS.forEach(usuario =>{
+        let highScoreUser = document.createElement('tr')
+        highScoreUser.innerHTML = `
+            <td >${usuario.nombre}</td>
+            <td >${usuario.tiempo}</td>
+        `;
+        tbody.appendChild(highScoreUser);
+    })
+}
+
+function obtenerTimesLS(){
+
+    if(localStorage.getItem('tiempos') == null ){
+        return []
+    }else{
+        return JSON.parse(localStorage.getItem('tiempos'))
+    }
+}
+
+
 
 
 
