@@ -1,6 +1,8 @@
 
 const grid = querySelectorClass('grid')
+const gamesOptions = querySelectorClass('games-options')
 const game = querySelectorClass('game-container')
+const wordleGame = querySelectorClass('wordle-game')
 const spinner = querySelectorClass('spinner-container')
 const finallyGame = querySelectorClass('finally-game-container')
 
@@ -14,19 +16,31 @@ const spanTimer = querySelectorClass('timer')
 const finallyPages = querySelectorClass('finally-game-pages')
 const highScore = querySelectorClass('highscore-container')
 
+gamesOptions.addEventListener('click', ({target})=>{
+    if(target.classList.contains('button-games')){
+        if(target.id == 'memorama'){
+            loadMemorama();
+            
+        }else if(target.id == 'wordle'){
+            window.location = '../pages/wordle.html'
+        }
+        gamesOptions.classList.add('inactive')
+    }
+})
 
 finallyPages.addEventListener('click', ({target})=>{
 
     if(target.classList.contains('replay')){
+        loadMemorama();
+    }
+    else if(target.classList.contains('inicio')){
         window.location = '../pages/games.html'
     }
-    if(target.classList.contains('inicio')){
-        window.location = '../index.html'
-    }
-    if(target.classList.contains('highscore')){
+    else if(target.classList.contains('highscore')){
         finallyGame.classList.add('inactive')
         highScore.classList.remove('inactive')
     }
+
 })
 
 /* PREVIEW GAME */
@@ -47,6 +61,13 @@ const characters = [
 
 
 function loadGame(){
+
+    if(grid.hasChildNodes()){
+        while(grid.hasChildNodes()){
+            grid.firstChild.remove();
+            
+        }
+    }
 
     const duplicateCharacters = [...characters, ...characters]
 
@@ -72,10 +93,10 @@ function createCard(character){
     return card;
 }
 
-function starTimer(){
 
+function starTimer(){
+    spanTimer.innerHTML = '0'
     this.loop = setInterval(()=>{
-    
         const currentTime  = +spanTimer.innerHTML;
         spanTimer.innerHTML = currentTime + 1;
     },1000)
@@ -87,6 +108,16 @@ window.onload = () =>{
     game.classList.add('inactive');
     setTimeout(() => {
         spinner.classList.add('inactive');
+        gamesOptions.classList.remove('inactive')
+    }, 2000);
+}
+
+function loadMemorama(){
+    spinner.classList.remove('inactive');
+    game.classList.add('inactive');
+    highScore.classList.add('inactive')
+    setTimeout(() => {
+        spinner.classList.add('inactive');
         game.classList.remove('inactive');
         starTimer();
     }, 2000);
@@ -94,6 +125,19 @@ window.onload = () =>{
     spanPlayer.textContent  = localStorage.getItem('userInGame');
     loadGame();
 }
+
+/* function loadWordle(){
+    spinner.classList.remove('inactive');
+    wordleGame.classList.add('inactive');
+    setTimeout(() => {
+        spinner.classList.add('inactive');
+        wordleGame.classList.remove('inactive');
+        starTimer();
+    }, 2000);
+} */
+
+
+
 
 
 

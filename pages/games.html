@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/spinner.css">
     <link rel="stylesheet" href="../css/game.css">
+    <link rel="stylesheet" href="../css/wordle.css">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Scripts -->
     <script defer src="../js/game.js"></script>
+    <!-- <script defer src="../js/wordle.js"></script> -->
 </head>
 <body >
     
@@ -32,7 +34,35 @@
         </div>
     </div>
 
-    <main class="game-container ">
+
+    <section class="games-options inactive">
+        <article class="games-option">
+
+            <img class="games-img" src="../images/wordle.jpeg" alt="Wordle">
+            
+            <div  class="games-button">
+                <button id="wordle" class="button-games">
+                    <i class="bi bi-controller"></i>
+                    Jugar : Wordle
+                </button>
+            </div>
+
+        </article>
+        <article class="games-option">
+
+            <img class="games-img" src="../images/memorama.jpg" alt="Wordle">
+            
+            <div  class="games-button">
+                <button id="memorama" class="button-games">
+                    <i class="bi bi-controller"></i>
+                    Jugar : Memorama
+                </button>
+            </div>
+
+        </article>
+    </section>
+
+    <main class="game-container inactive">
         <header>
             <span class="player"></span>
             <span >Tiempo: <span class="timer">00</span></span>
@@ -105,5 +135,23 @@
     </section>
 
 
+    <!-- <section class="wordle-game inactive">
+        <section class="wordle-container">
+            <h2 class="loading">Cargando...</h2>
+    
+            <div id="1" class="row">
+                
+            </div>
+            
+
+        </section>
+        <div class="result">
+            
+        </div>
+    </section> -->
+    
+
+
+    
 </body>
 </html>
