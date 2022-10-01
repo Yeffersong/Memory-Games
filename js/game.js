@@ -1,4 +1,15 @@
 
+
+/* VARIABLES USER */
+
+const userName = document.querySelector('#user-name')
+const userSession = document.querySelector('.user-signOff')  
+
+userSession.addEventListener('click', ()=>{
+    window.location = '../index.html'
+})
+
+/* CONTAINERS */
 const grid = querySelectorClass('grid')
 const gamesOptions = querySelectorClass('games-options')
 const game = querySelectorClass('game-container')
@@ -103,7 +114,7 @@ function starTimer(){
 }
 
 window.onload = () =>{
-
+    userName.textContent = localStorage.getItem('userInGame');
     spinner.classList.remove('inactive');
     game.classList.add('inactive');
     setTimeout(() => {
