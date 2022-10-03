@@ -51,14 +51,20 @@ createWord()
         let loadingElement = document.querySelector('.loading')
         loadingElement.style.display = 'none'
 
+
         /* In Game */
         word = data[0];
         console.log(word)
 
+        /* AYUDA DEL JUEGO */
+
         let wordArray = word.toUpperCase().split('');
 
-        let actualRow = document.querySelector('.row');
+        let rowHelp = document.querySelector('#rowHelp')
+        drawSquaresHelp(rowHelp)
 
+
+        let actualRow = document.querySelector('.row').nextElementSibling;
         drawSquares(actualRow);
         listenInput(actualRow)
 
@@ -115,7 +121,7 @@ createWord()
                             window.location = '../pages/games.html';
                             })
                         }else{
-                            if(rowId <= 4){
+                            if(rowId <= 3){
                                 let actualRow = createRow();
                                 drawSquares(actualRow);
                                 target.parentElement.nextElementSibling.firstElementChild.focus() 
@@ -172,6 +178,7 @@ createWord()
             return existIndexArray;
         }
 
+
         function createRow(){
             rowId++;
             let newRow = document.createElement(`div`);
@@ -182,6 +189,28 @@ createWord()
             return newRow;
         }
 
+        function drawSquaresHelp(rowHelp){
+            let numberLetters = [];
+            if(wordArray.length == 3){
+                numberLetters = [];
+            }else if( wordArray.length == 4){
+                numberLetters = [0]
+            }else if(wordArray.length == 5){
+                numberLetters = [0,4]
+            }else if(wordArray.length >= 6){
+                let letterMiddle = Math.round(wordArray.length/2)
+                numberLetters = [0,letterMiddle-1,wordArray.length-1]
+            }
+
+            wordArray.forEach( (item, index) =>{
+                if(numberLetters.includes(index)){
+                    rowHelp.innerHTML += `<input type="text" maxlength="1" class="square green" value=${item} disabled=''>` 
+                }else{
+                    rowHelp.innerHTML += `<input type="text" maxlength="1" class="square" value='?' disabled=''>` 
+                }
+            });
+            
+        }
         function drawSquares(actualRow){
             
             wordArray.forEach( (item, index) =>{
