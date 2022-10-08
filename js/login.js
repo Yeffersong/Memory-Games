@@ -11,8 +11,27 @@ class Usuario{
         this.password = password;
     }
 
+    getNombre(){
+        return this.nombre
+    }
+    setNombre(nombre){
+        this.nombre = nombre
+    }
+
+    getPassword(){
+        return this.password
+    }
+    setPasssword(password){
+        this.password = password
+    }
+
+    static getInstance(nombre, password){
+        return new Usuario(nombre, password)
+    }
 
 }
+
+
 
 
 /* variables */
@@ -169,7 +188,8 @@ function registrarUsurio(){
 
     let usuarios = obtenerUsuariosLocalStorage();
     
-        const player  = new Usuario(input.value.trim(), inputPassword.value.trim())
+        /* const player  = new Usuario(input.value.trim(), inputPassword.value.trim()); */
+        const player = Usuario.getInstance(input.value.trim(), inputPassword.value.trim());
     
         usuarios.push(player);
     
